@@ -1,5 +1,9 @@
 angular.module('index.controllers', [])
 
+    .controller('indexBaseCtrl', function($scope) {
+        console.log('base');
+    })
+
 .controller('indexCtrl', function($scope) {
         console.log('index');
     })
