@@ -1,16 +1,9 @@
 angular.module('index.controllers', [])
 
     .controller('indexBaseCtrl', function($scope,cart) {
-        var page=0;
-        var pageSize=100;
-        var version=0;
-        $scope.number=0;
-        cart.load(page,pageSize,version,function(data){
-            if(data[1]==='ok'){
-                data[2].forEach(function (goods) {
-                    $scope.number=$scope.number+goods.quantity;
-                });
-            }
+        cart.getGoodsNumber(function(data){
+            console.log(data);
+            $scope.data=data;
         });
     })
 
@@ -18,8 +11,17 @@ angular.module('index.controllers', [])
         console.log('index');
     })
 
-.controller('cartCtrl', function($scope) {
-        console.log('cart');
+.controller('cartCtrl', function($scope,cart,$ionicListDelegate) {
+
+        cart.getGoods(function(data){
+            console.log(data);
+            $scope.cartGoods=data;
+        });
+   $scope.del=function(index){
+       cart.deleteGoods(index,function(){
+           console.log('sdfsdf');
+       });
+   }
 
 })
 

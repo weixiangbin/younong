@@ -1,5 +1,17 @@
-<ion-view view-title="天天有农">
+<ion-view>
   <ion-content>
-    cart
+      <ion-list>
+          <ion-item ng-repeat="item in cartGoods" class="item-thumbnail-left" >
+              <img ng-src="{{item.img}}">
+              <h2>{{item.product_name}}</h2>
+              <p class="attention">￥{{item.product_sell_price/100}}</p>
+              <p class="fl">{{item.prod_sku_values}}</p>
+              <button class=" fr" style="min-width:20px;min-height:20px">{{item.quantity}}</button>
+              <p class="fr">数量：</p>
+              <ion-option-button class="button-assertive" ng-click="del($index)">
+                  删除
+              </ion-option-button>
+          </ion-item>
+      </ion-list>
   </ion-content>
 </ion-view>
