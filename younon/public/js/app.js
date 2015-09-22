@@ -1,5 +1,9 @@
 // Ionic Starter App
 
+var api='rest/';
+var pageNumber=10;
+var customerId=11;
+
 angular.module('starter', ['ionic', 'index.controllers', 'index.services','admin.controllers', 'admin.services','person.controllers', 'person.services','shop.controllers', 'shop.services',])
 
 .run(function($ionicPlatform) {
